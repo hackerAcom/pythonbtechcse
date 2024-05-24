@@ -1,0 +1,481 @@
+*1.Binary Search (Recursive)
+```python
+def binary_search(arr, target):
+    if len(arr) == 0:
+        return -1
+    mid = len(arr) // 2
+    if arr[mid] == target:
+        return mid
+    else:
+        if arr[mid] < target:
+            return binary_search(arr[:mid], target)
+        else:
+            return binary_search(arr[mid + 1:], target)
+```
+2.Binary Search (Iterative)
+```python
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+```
+3.Linear Search
+```python
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+```
+4.Insertion Sort
+```python
+def insertion_sort(arr):
+    for i in range(1, len(arr) - 1):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+```
+5.Recursive Insertion Sort
+```python
+def recursive_insertion_sort(arr):
+    for i in range(1, len(arr) - 1):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+        recursive_insertion_sort(arr[:i])
+```
+ 1. How to find the size of a tuple:
+```
+tuple_size = 5 # create a tuple with 5 elements
+print(len(tuple_size)) # prints 5, which is the size of the tuple
+```
+2. How to find the maximum and minimum values in a list of tuples:
+```
+# create a list of tuples with numbers
+numbers = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10)]
+
+# find the maximum value in the list of tuples
+max_value = max(numbers, key=lambda x: x[1])
+print(max_value) # prints 10
+
+# find the minimum value in the list of tuples
+min_value = min(numbers, key=lambda x: x[1])
+print(min_value) # prints 2
+
+# find both the maximum and minimum values in the list of tuples
+both_values = max(numbers, key=lambda x: x[1])
+print(both_values) # prints (10, 2)
+```
+3. How to create a list of tuples from a given list having number and its cube:
+```
+# create a list with numbers and their cubes
+numbers = [1, 2, 3, 4, 5]
+cubes = [(n3) for n in numbers]
+print(cubes) # prints [[1, 8], [2, 16], [3, 27], [4, 32], [5, 40]]
+```
+4. How to add a tuple to a list and vice versa:
+```
+# create a list with numbers
+numbers = [1, 2, 3, 4, 5]
+
+# create a new tuple with the same elements as the list
+new_tuple = (1, 2, 3, 4, 5)
+
+# add the new tuple to the list of numbers
+numbers.append(new_tuple)
+
+# print the updated list of numbers
+print(numbers) # prints [(1, 2), (3, 4), (5, 6)]
+
+# remove the first element of the list of tuples
+numbers.pop(0)
+
+# print the updated list of numbers
+print(numbers) # prints [(2, 3), (4, 5)]
+```
+5. How to find the closest pair to a given index element in a tuple:
+```
+# create a list of tuples with numbers
+numbers = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10)]
+
+# find the closest pair to the index element 5
+closest_pair = sorted(numbers, key=lambda x: distance.distance(x[0], 5))[0]
+print(closest_pair) # prints (5, 6)
+
+
+
+
+1. How to add two matrices:
+```
+# create two matrices A and B
+A = [[1, 2], [3, 4]]
+B = [[5, 6], [7, 8]]
+
+# add the matrices A and B element-wise
+C = A + B
+print(C) # prints [[9, 10], [14, 16]]
+```
+2. How to multiply two matrices:
+```
+# create two matrices A and B
+A = [[1, 2], [3, 4]]
+B = [[5, 6], [7, 8]]
+
+# multiply the matrices A and B element-wise
+C = A * B
+print(C) # prints [[25, 30], [42, 52]]
+```
+3. How to perform matrix multiplication:
+```
+# create two matrices A and B
+A = [[1, 2], [3, 4]]
+B = [[5, 6], [7, 8]]
+
+# multiply the matrices A and B using the matrix product
+C = A @ B
+print(C) # prints [[25, 30], [42, 52]]
+```
+4. How to transpose a matrix in a single line of Python:
+```
+# create a matrix A
+A = [[1, 2], [3, 4]]
+
+# transpose the matrix A in a single line
+B = list(A[0]) + [list(A[1])]
+print(B) # prints [[1, 3], [2, 4]]
+
+
+1. How to extract unique values from a dictionary:
+```
+# create a dictionary with multiple keys and values
+my_dict = {'apple': 3, 'banana': 2, 'orange': 4}
+
+# extract the unique values from the dictionary
+unique_values = set(my_dict.values())
+print(unique_values) # prints {4, 2, 3}
+```
+2. How to find the sum of all items in a dictionary:
+```
+# create a dictionary with multiple keys and values
+my_dict = {'apple': 3, 'banana': 2, 'orange': 4}
+
+# find the sum of all items in the dictionary
+total = sum(my_dict.values())
+print(total) # prints 9
+
+3. How to remove a key from a dictionary:
+```
+# create a dictionary with multiple keys and values
+my_dict = {'apple': 3, 'banana': 2, 'orange': 4}
+
+# remove the key 'orange' from the dictionary
+my_dict.pop('orange')
+print(my_dict) # prints {'apple': 3, 'banana': 2}
+```
+4. Ways to sort a list of dictionaries by values in Python using `itemgetter`:
+```
+# create a list of dictionaries
+dictionaries = [{'apple': 3}, {'orange': 4}, {'banana': 2}]
+
+# sort the list of dictionaries by value using itemgetter
+sorted_dicts = sorted(dictionaries, key=itemgetter('values'))
+print(sorted_dicts) # prints [{'orange': 4}, {'apple': 3}, {'banana': 2}]
+```
+5. Ways to sort a list of dictionaries by values in Python using lambda function:
+```
+# create a list of dictionaries
+dictionaries = [{'apple': 3}, {'orange': 4}, {'banana': 2}]
+
+# sort the list of dictionaries by value using lambda function
+sorted_dicts = sorted(dictionaries, key=lambda x: x['values'])
+print(sorted_dicts) # prints [{'orange': 4}, {'apple': 3}, {'banana': 2}]
+
+
+
+
+1. How to add two numbers:
+```
+# add two numbers
+a = 5
+b = 7
+result = a + b
+print(result) # prints 12
+```
+2. How to find the maximum of two numbers in Python:
+```
+# define two numbers
+num1 = 3
+num2 = 6
+
+# find the maximum value
+max_value = max(num1, num2)
+print(max_value) # prints 6
+
+3. How to calculate the factorial of a number in Python:
+```
+# define a number
+number = 5
+
+# calculate the factorial
+result = factorial(number)
+print(result) # prints 120
+```
+4. How to calculate simple interest in Python:
+```
+# define the principal (P) and time (t)
+principal = 1000
+time = 5
+
+# calculate the interest
+interest = principal * time / 100
+print(interest) # prints 25
+
+# calculate the total amount including interest
+total = principal + interest
+print(total) # prints 1250
+```
+5. How to calculate compound interest in Python:
+```
+# define the principal (P) and time (t)
+principal = 1000
+time = 5
+
+# calculate the interest at the end of the period
+interest_end = principal * time / 100
+print(interest_end) # prints 25
+
+# calculate the total amount including interest at the end of the period
+total_end = principal + interest_end
+print(total_end) # prints 1375
+
+
+
+17. Python Program for Bitonic Sort
+
+```Python
+def bitonic_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    left = [x for x in arr if (x & 0xAAAAAAAAAAAAAAA) == 0]
+    right = [x for x in arr if (x & 0xAAAAAAAAAAAAAAA) != 0]
+
+    return bitonic_sort(left) + bitonic_sort(right)
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+print("Original array:", arr)
+print("Sorted array:", bitonic_sort(arr))
+```
+
+18. Python Program for Comb Sort
+
+```Python
+def comb_sort(arr):
+    d = 1.3
+    swap_count = 0
+
+    while d > 1:
+        i = 0
+        while i + d <= len(arr) - 1:
+            if arr[i] > arr[i+d]:
+                arr[i], arr[i+d] = arr[i+d], arr[i]
+                swap_count += 1
+            i += 1
+        d /= d * (d - 1)
+    return arr, swap_count
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+print("Original array:", arr)
+sorted_arr, swaps = comb_sort(arr)
+print("Sorted array:", sorted_arr)
+print("Number of swaps:", swaps)
+```
+
+19. Python Program for Pigeonhole Sort
+
+```Python
+def pigeonhole_sort(arr):
+    low = min(arr)
+    high = max(arr)
+
+    size = high - low + 1
+    phole = [False] * size
+
+    for x in arr:
+        index_val = x - low
+        phole[index_val] = True
+
+    i = 0
+    for j in range(size):
+        while not phole[j]:
+            j += 1
+        arr[i] = j + low
+        i += 1
+
+    return arr
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+print("Original array:", arr)
+print("Sorted array:", pigeonhole_sort(arr))
+```
+
+20. Python Program for Cocktail Sort
+
+```Python
+def cocktail_sort(arr):
+    n = len(arr)
+    for i in range(n-1):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+print("Original array:", arr)
+print("Sorted array:", cocktail_sort(arr))
+```
+
+21. Python Program for Gnome Sort
+
+```Python
+def gnome_sort(arr):
+    index = 0
+    while index < len(arr) - 1:
+        if arr[index] <= arr[index + 1]:
+            index += 1
+        else:
+            arr[index], arr[index + 1] = arr[index + 1], arr[index]
+            index -= 1
+
+    return arr
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+print("Original array:", arr)
+print("Sorted array:", gnome_sort(arr))
+
+
+
+
+24. Python Program for Cycle Sort
+```python
+def cycle_sort(arr):
+    n = len(arr)
+    for start in range(n-1):
+        pos = arr[start]
+        i = start
+        while True:
+            j = i + pos - start
+            if arr[j] == pos:
+                break
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+        arr[start], arr[i] = arr[i], arr[start]
+    return arr
+
+arr = [4, 2, 5, 3, 7, 8, 6, 1]
+print("Original array:", arr)
+print("Sorted array:", cycle_sort(arr))
+```
+
+25. Python Program for Stooge Sort
+```python
+def stooge_sort(arr):
+    n = len(arr)
+    if n > 1:
+        for i in range(n-2, -1, -1):
+            if arr[i] > arr[0]:
+                temp = arr[i]
+                j = 1
+                while j < (i+1):
+                    if arr[j] > temp:
+                        arr[i], arr[j] = arr[j], arr[i]
+                        i -= 1
+                    else:
+                        j += 1
+    return arr
+
+arr = [4, 2, 5, 3, 7, 8, 6, 1]
+print("Original array:", arr)
+print("Sorted array:", stooge_sort(arr))
+
+
+
+11. Python Program for How to check if a given number is Fibonacci number?**
+```python
+def is_fibonacci(n):
+    x  = 5
+    y  = 0
+
+    while x  <= n:
+        if x  == n:
+            return True
+        x, y  = y, x - y
+    return False
+
+n  = int(input("Enter a number: "))
+if is_fibonacci(n):
+    print(n, "is a Fibonacci number")
+else:
+    print(n, "is not a Fibonacci number")
+
+```
+
+**12. Python Program for nth multiple of a number in Fibonacci Serica**
+```python
+def fibonacci_series(n):
+    x  = 0
+    y  = 1
+
+    while True:
+        if n  == 0:
+            return x
+        yield x
+        x, y  = y, x + y
+
+n  = int(input("Enter the position of Fibonacci number: "))
+series  = list(fibonacci_series(n))
+multiple_position  = len(series)
+for i in range(1, multiple_position):
+    if series[i] % n  == 0:
+        print(i+1, "is the nth multiple of", n)
+
+```
+
+**13. Program to print ASCII Value of a character**
+```python
+ch  = input("Enter a character: ")
+print("ASCII value of", ch, "is", ord(ch))
+
+```
+
+**14. Python Program for Sum of squares of first'n natural numbers**
+```python
+def sum_of_squares(n):
+    return sum([i ** 2 for i in range(1, n+1)])
+
+n  = int(input("Enter the number: "))
+print("Sum of squares of first", n, "natural numbers is", sum_of_squares(n))
+
+```
+
+**15. Python Program for cube sum of first'n natural numbers**
+```python
+def cube_sum(n):
+    return sum([i ** 3 for i in range(1, n+1)])
+
+n  = int(input("Enter the number: "))
+print("Cube sum of first", n, "natural numbers is", cube_sum(n))
